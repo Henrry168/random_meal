@@ -19,42 +19,46 @@ else:
     meal = '晚'
         
 info = {
-        '早': {1: random.choice([1,2,3,4,5,6,7,8,9])},
+        '早': {1: random.choice(shuffle(clone([1,2,3,4,5,6,7,8,9])))},
         
         '午': {
-               
-               2: random.choice([1,2,3,4,5,6,7,8,9,12,23,24]),
-               3: random.choice([1,3,5,7,9,11,13]),
-               2: random.choice([1,2,3,4,5,6,7,8,9,12,23,24]),
-               3: random.choice([1,3,5,7,9,11,13]),
-               2: random.choice([1,2,3,4,5,6,7,8,9,12,23,24]),
-               3: random.choice([1,3,5,7,9,11,13]),
-               2: random.choice([1,2,3,4,5,6,7,8,9,12,23,24]),
-               3: random.choice([1,3,5,7,9,11,13]),
-                1: random.choice([1,2,5,7,8,9,12,17])
+               1: random.choice(shuffle(clone([1,2,5,7,8,9,12,17]))),
+               2: random.choice(shuffle(clone([1,2,3,4,5,6,7,8,9,12,23,24]))),
+               3: random.choice(shuffle(clone([1,3,5,7,9,11,13])))
               },
         
         '晚':  {
-               
-               2: random.choice([1,2,3,4,5,6,7,8,9,12,23,24]),
-               3: random.choice([1,3,5,7,9,11,13]),
-               2: random.choice([1,2,3,4,5,6,7,8,9,12,23,24]),
-               3: random.choice([1,3,5,7,9,11,13]),
-               2: random.choice([1,2,3,4,5,6,7,8,9,12,23,24]),
-               3: random.choice([1,3,5,7,9,11,13]),
-            1: random.choice([1,2,5,7])
+               1: random.choice(shuffle(clone([1,2,5,7]))),
+               2: random.choice(shuffle(clone([1,2,3,4,5,6,7,8,9,12,23,24]))),
+               3: random.choice(shuffle(clone([1,3,5,7,9,11,13])))
               },
         
         '休闲': {
-               1: random.choice([6]),
-               2: random.choice([12]),
-               3: random.choice([13])
+               1: random.choice(shuffle(clone([6]))),
+               2: random.choice(shuffle(clone([12]))),
+               3: random.choice(shuffle(clone([13])))
               }
        }
 
 黑名单 = [(3, 12)]
 
 url = 'https://weibo.com/search/weibo?q='
+
+def clone(self):
+    result = []
+    for i in range(1000):
+        for x in self:
+            result.append(x)
+    
+    return result
+
+def shuffle(lis):
+    result = []
+    while lis:
+        p = random.randrange(0, len(lis))
+        result.append(lis[p])
+        lis.pop(p)
+    return result
 
 def 发钉钉():
     url='https://oapi.dingtalk.com/robot/send?access_token=d52e22e093a6e85459a7ff267fa410207891e5899c58e51436be9e6c67af6c2b'
@@ -68,7 +72,7 @@ def 发钉钉():
 
 def 吃什么好呢(meal):
     global destination, floor, number, 去西苑
-    destination = random.choice(list(info[meal].items()))
+    destination = random.choice(shuffle(clone(list(info[meal].items()))))
     判断()
     floor, number = destination
     去西苑 =  '郑航西苑' + str(floor) + '楼' +  str(number) + '号'
