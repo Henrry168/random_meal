@@ -67,7 +67,7 @@ def 发钉钉():
         "text": { "content": 文本}
         }
     headers={ 'content-Type' : 'application/json'}
-    # res = requests.post(url, data=json.dumps(program), headers=headers)
+    res = requests.post(url, data=json.dumps(program), headers=headers)
 
 
 def 吃什么好呢(meal):
