@@ -17,6 +17,22 @@ elif now_time in time_interval_2:
     meal = '午'
 else:
     meal = '晚'
+
+def clone(self):
+    result = []
+    for i in range(1000):
+        for x in self:
+            result.append(x)
+    
+    return result
+
+def shuffle(lis):
+    result = []
+    while lis:
+        p = random.randrange(0, len(lis))
+        result.append(lis[p])
+        lis.pop(p)
+    return result
         
 info = {
         '早': {1: random.choice(shuffle(clone([1,2,3,4,5,6,7,8,9])))},
@@ -43,22 +59,6 @@ info = {
 黑名单 = [(3, 12)]
 
 url = 'https://weibo.com/search/weibo?q='
-
-def clone(self):
-    result = []
-    for i in range(1000):
-        for x in self:
-            result.append(x)
-    
-    return result
-
-def shuffle(lis):
-    result = []
-    while lis:
-        p = random.randrange(0, len(lis))
-        result.append(lis[p])
-        lis.pop(p)
-    return result
 
 def 发钉钉():
     url='https://oapi.dingtalk.com/robot/send?access_token=d52e22e093a6e85459a7ff267fa410207891e5899c58e51436be9e6c67af6c2b'
