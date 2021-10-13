@@ -67,11 +67,12 @@ def 发钉钉():
         "text": { "content": 文本}
         }
     headers={ 'content-Type' : 'application/json'}
-    res = requests.post(url, data=json.dumps(program), headers=headers)
+    # res = requests.post(url, data=json.dumps(program), headers=headers)
 
 
 def 吃什么好呢(meal):
     global destination, floor, number, 去西苑
+    print(list(info[meal].items()))
     destination = random.choice(shuffle(clone(list(info[meal].items()))))
     判断()
     floor, number = destination
@@ -103,7 +104,7 @@ def 一言():
 def 最终文本():
     global 文本
     一言()
-    吃什么好呢('早')
+    吃什么好呢(meal)
     微博()
     时间 = '现在时刻，北京时间' + str(now_time)
     问候 = '大家好，今天' + meal + '上' + '的幸运窗口是：'
