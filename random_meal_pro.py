@@ -58,7 +58,7 @@ info = {
 
 黑名单 = [(3, 12)]
 
-url = 'https://weibo.com/search/weibo?q='
+url = 'http://s.weibo.com/weibo/'
 
 def 发钉钉():
     url='https://oapi.dingtalk.com/robot/send?access_token=d52e22e093a6e85459a7ff267fa410207891e5899c58e51436be9e6c67af6c2b'
