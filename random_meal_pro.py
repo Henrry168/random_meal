@@ -39,14 +39,14 @@ def shuffle(lis):
         
         '午': {
                1: random.choice(shuffle(clone([1,2,5,7,8,9,12,17]))),
-               2: random.choice(shuffle(clone([1,2,3,4,5,6,7,8,9,12,23,24]))),
-               3: random.choice(shuffle(clone([1,3,5,7,9,11,13])))
+               2: random.choice(shuffle(clone([1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25]))),
+               3: random.choice(shuffle(clone([1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25])))
               },
         
         '晚':  {
                1: random.choice(shuffle(clone([1,2,5,7]))),
-               2: random.choice(shuffle(clone([1,2,3,4,5,6,7,8,9,12,23,24]))),
-               3: random.choice(shuffle(clone([1,3,5,7,9,11,13])))
+               2: random.choice(shuffle(clone([1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25]))),
+               3: random.choice(shuffle(clone([1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25])))
               },
         
         '休闲': {
@@ -82,7 +82,7 @@ def shuffle(lis):
               }
        }
 
-西苑黑名单 = [(2, 24)]
+西苑黑名单 = [(2, 24), (3, 6), (3,7), (3, 11)]
 
 东苑黑名单 = [(2, 5)]
 
