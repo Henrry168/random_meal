@@ -34,7 +34,7 @@ def shuffle(lis):
         lis.pop(p)
     return result
         
-info = {
+西苑的大宝贝 = {
         '早': {1: random.choice(shuffle(clone([1,2,3,4,5,6,7,8,9])))},
         
         '午': {
@@ -56,7 +56,35 @@ info = {
               }
        }
 
-黑名单 = [(3, 12)]
+东苑的大宝贝 = {
+        '早': {
+               1: random.choice(shuffle(clone([1,2,3,4,5,6,7,8,9]))),
+               2: random.choice(shuffle(clone([1,2,3,4,5,6,7,8,9,12,23,24]))),
+               3: random.choice(shuffle(clone([1,3,5,7,9,11,13])))
+               },
+        
+        '午': {
+               1: random.choice(shuffle(clone([1,2,5,7,8,9,12,17]))),
+               2: random.choice(shuffle(clone([1,2,3,4,5,6,7,8,9,12,23,24]))),
+               3: random.choice(shuffle(clone([1,3,5,7,9,11,13])))
+              },
+        
+        '晚':  {
+               1: random.choice(shuffle(clone([1,2,5,7]))),
+               2: random.choice(shuffle(clone([1,2,3,4,5,6,7,8,9,12,23,24]))),
+               3: random.choice(shuffle(clone([1,3,5,7,9,11,13])))
+              },
+        
+        '休闲': {
+               1: random.choice(shuffle(clone([6]))),
+               2: random.choice(shuffle(clone([12]))),
+               3: random.choice(shuffle(clone([13])))
+              }
+       }
+
+西苑黑名单 = [(2, 24)]
+
+东苑黑名单 = [(2, 5)]
 
 url = 'http://s.weibo.com/weibo/'
 
@@ -72,15 +100,15 @@ def 发钉钉():
 
 def 吃什么好呢(meal):
     global destination, floor, number, 去西苑
-    print(list(info[meal].items()))
-    destination = random.choice(shuffle(clone(list(info[meal].items()))))
+    print(list(西苑的大宝贝[meal].items()))
+    destination = random.choice(shuffle(clone(list(西苑的大宝贝[meal].items()))))
     判断()
     floor, number = destination
     去西苑 =  '郑航西苑' + str(floor) + '楼' +  str(number) + '号'
     print(destination)
    
 def 判断(): 
-    if destination in 黑名单:
+    if destination in 西苑黑名单:
         吃什么好呢()
     else:
         return destination
