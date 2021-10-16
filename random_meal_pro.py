@@ -109,7 +109,7 @@ def 吃什么好呢(meal):
    
 def 判断(): 
     if destination in 西苑黑名单:
-        吃什么好呢()
+        吃什么好呢(meal)
     else:
         return destination
 
