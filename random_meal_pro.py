@@ -4,6 +4,11 @@ import random
 import urllib.parse
 import time
 from interval import Interval
+from config import 西苑的大宝贝
+from config import 东苑的大宝贝
+from config import 西苑黑名单
+from config import 东苑黑名单
+from config import url
 
 now_localtime = time.strftime("%H:%M:%S", time.localtime())
 now_time = Interval(now_localtime, now_localtime)
@@ -34,62 +39,9 @@ def shuffle(lis):
         lis.pop(p)
     return result
         
-西苑的大宝贝 = {
-        '早上': {1: random.choice(shuffle(clone([1,2,3,4,5,6,7,8,9])))},
-        
-        '中午': {
-               1: random.choice(shuffle(clone([1,2,5,7,8,9,12,17]))),
-               2: random.choice(shuffle(clone(['A01', 'A02', 'A03', 'A04', 'A05', 'A06', 'A07', 'A08', 'A09', 'A10', 'A11', 'A12', 'A13', 'B01', 'B02', 'B03', 'B04', 'B05', 'B06', 'B07', 'B08', 'B09', 'B10', 'B11', 'B12', 'B13']))),
-               3: random.choice(shuffle(clone([1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25])))
-              },
-        
-        '晚上':  {
-               1: random.choice(shuffle(clone([1,2,5,7]))),
-               2: random.choice(shuffle(clone(['A01', 'A02', 'A03', 'A04', 'A05', 'A06', 'A07', 'A08', 'A09', 'A10', 'A11', 'A12', 'A13', 'B01', 'B02', 'B03', 'B04', 'B05', 'B06', 'B07', 'B08', 'B09', 'B10', 'B11', 'B12', 'B13']))),
-               3: random.choice(shuffle(clone([1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25])))
-              },
-        
-        '休闲': {
-               1: random.choice(shuffle(clone([6]))),
-               2: random.choice(shuffle(clone([12]))),
-               3: random.choice(shuffle(clone([13])))
-              }
-       }
-
-东苑的大宝贝 = {
-        '早上': {
-               1: random.choice(shuffle(clone([1,2,3,4,5,6,7,8,9]))),
-               2: random.choice(shuffle(clone([1,2,3,4,5,6,7,8,9,12,23,24]))),
-               3: random.choice(shuffle(clone([1,3,5,7,9,11,13])))
-               },
-        
-        '中午': {
-               1: random.choice(shuffle(clone([1,2,5,7,8,9,12,17]))),
-               2: random.choice(shuffle(clone([1,2,3,4,5,6,7,8,9,12,23,24]))),
-               3: random.choice(shuffle(clone([1,3,5,7,9,11,13])))
-              },
-        
-        '晚上':  {
-               1: random.choice(shuffle(clone([1,2,5,7]))),
-               2: random.choice(shuffle(clone([1,2,3,4,5,6,7,8,9,12,23,24]))),
-               3: random.choice(shuffle(clone([1,3,5,7,9,11,13])))
-              },
-        
-        '休闲': {
-               1: random.choice(shuffle(clone([6]))),
-               2: random.choice(shuffle(clone([12]))),
-               3: random.choice(shuffle(clone([13])))
-              }
-       }
-
-西苑黑名单 = [(2, 24), (3, 6), (3,7), (3, 11)]
-
-东苑黑名单 = [(2, 5)]
-
-url = 'http://s.weibo.com/weibo/'
+微博url = 'http://s.weibo.com/weibo/'
 
 def 发钉钉():
-    url='https://oapi.dingtalk.com/robot/send?access_token=d52e22e093a6e85459a7ff267fa410207891e5899c58e51436be9e6c67af6c2b'
     program = {
         "msgtype": "text",
         "text": { "content": 文本}
@@ -107,7 +59,7 @@ def 吃什么好呢(meal):
     去西苑 =  '郑航西苑' + str(floor) + '楼' +  str(number) + '号'
     print(destination)
    
-def 判断(): 
+def 判断():
     if destination in 西苑黑名单:
         吃什么好呢(meal)
     else:
@@ -117,7 +69,7 @@ def 微博():
     global 西苑微博
     item_xiyuan = 去西苑
     西苑url = urllib.parse.quote(item_xiyuan)  
-    西苑微博 = url + 西苑url
+    西苑微博 = 微博url + 西苑url
 
 def 一言():
     global content_yiyan
