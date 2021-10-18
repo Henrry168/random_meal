@@ -1,14 +1,13 @@
-import requests
 import random
 import urllib.parse
 import time
+import requests
+
+import bot
 import core
+import config
+
 from interval import Interval
-from config import 西苑的大宝贝
-from config import 东苑的大宝贝
-from config import 西苑黑名单
-from config import 东苑黑名单
-from config import url
 
 now_localtime = time.strftime("%H:%M:%S", time.localtime())
 now_time = Interval(now_localtime, now_localtime)
@@ -22,29 +21,18 @@ elif now_time in time_interval_2:
     meal = '中午'
 else:
     meal = '晚上'
-       
-微博url = 'http://s.weibo.com/weibo/'
-
-def 发钉钉():
-    program = {
-        "msgtype": "text",
-        "text": { "content": 文本}
-        }
-    headers={ 'content-Type' : 'application/json'}
-    res = requests.post(url, data=json.dumps(program), headers=headers)
-
 
 def 吃什么好呢(meal):
     global destination, floor, number, 去西苑
-    print(list(西苑的大宝贝[meal].items()))
-    destination = random.choice(core.shuffle(core.clone(list(西苑的大宝贝[meal].items()))))
+    print(list(config.西苑的大宝贝[meal].items()))
+    destination = random.choice(core.shuffle(core.clone(list(config.西苑的大宝贝[meal].items()))))
     判断()
     floor, number = destination
     去西苑 =  '郑航西苑' + str(floor) + '楼' +  str(number) + '号'
     print(destination)
    
 def 判断():
-    if destination in 西苑黑名单:
+    if destination in config.西苑黑名单:
         吃什么好呢(meal)
     else:
         return destination
@@ -53,7 +41,7 @@ def 微博():
     global 西苑微博
     item_xiyuan = 去西苑
     西苑url = urllib.parse.quote(item_xiyuan)  
-    西苑微博 = 微博url + 西苑url
+    西苑微博 = config.weibo_search_url + 西苑url
 
 def 一言():
     global content_yiyan
@@ -75,4 +63,4 @@ def 最终文本():
     文本 = 时间 + '\n\n' + 问候 + 去西苑 + '\n' + '来看看这里有什么吧: ' + str(西苑微博) + '\n' + '\n' + '您还可以选择：东苑' + '\n' + '（东苑正在完善，别催了，555 o(╥﹏╥)o）' + '\n\n' + '请收下食堂菌的一言，不要介意哟：' + '\n' + content_yiyan
 
 最终文本()
-发钉钉()
+bot.dingtalk(文本)
