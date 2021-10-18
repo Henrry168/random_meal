@@ -9,5 +9,5 @@ def dingtalk(text):
         "text": {"content": text}
     }
     headers = {'content-Type': 'application/json'}
-    requests.post(config.bot.dingtalk, data=json.dumps(
+    requests.post(config.bot['dingtalk'], data=json.dumps(
         program), headers=headers)
