@@ -11,7 +11,6 @@ from interval import Interval
 
 now_localtime = time.strftime("%H:%M:%S", time.localtime())
 now_time = Interval(now_localtime, now_localtime)
-print(now_time)
 time_interval_1 = Interval("7:00:00", "9:00:00")
 time_interval_2 = Interval("11:00:00", "13:00:00")
 time_interval_3 = Interval("17:00:00", "20:00:00")
@@ -68,5 +67,6 @@ def 最终文本():
     return 时间 + '\n\n' + 问候 + 去西苑 + '\n' + '来看看这里有什么吧: ' + \
         str(西苑微博) + '\n' + '\n' + '您还可以选择：东苑' + '\n' + '（东苑正在完善，别催了，555 o(╥﹏╥)o）' + \
         '\n\n' + '请收下食堂菌的一言，不要介意哟：' + '\n' + 一言()
+
 
 bot.dingtalk(最终文本())
