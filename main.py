@@ -1,8 +1,8 @@
 import requests
-import json
 import random
 import urllib.parse
 import time
+import core
 from interval import Interval
 from config import 西苑的大宝贝
 from config import 东苑的大宝贝
@@ -22,23 +22,7 @@ elif now_time in time_interval_2:
     meal = '中午'
 else:
     meal = '晚上'
-
-def clone(self):
-    result = []
-    for i in range(1000):
-        for x in self:
-            result.append(x)
-    
-    return result
-
-def shuffle(lis):
-    result = []
-    while lis:
-        p = random.randrange(0, len(lis))
-        result.append(lis[p])
-        lis.pop(p)
-    return result
-        
+       
 微博url = 'http://s.weibo.com/weibo/'
 
 def 发钉钉():
@@ -53,7 +37,7 @@ def 发钉钉():
 def 吃什么好呢(meal):
     global destination, floor, number, 去西苑
     print(list(西苑的大宝贝[meal].items()))
-    destination = random.choice(shuffle(clone(list(西苑的大宝贝[meal].items()))))
+    destination = random.choice(core.shuffle(core.clone(list(西苑的大宝贝[meal].items()))))
     判断()
     floor, number = destination
     去西苑 =  '郑航西苑' + str(floor) + '楼' +  str(number) + '号'
@@ -89,6 +73,6 @@ def 最终文本():
     时间 = '现在时刻，北京时间' + str(now_time)
     问候 = '大家好，今天' + meal + '的幸运窗口是：'
     文本 = 时间 + '\n\n' + 问候 + 去西苑 + '\n' + '来看看这里有什么吧: ' + str(西苑微博) + '\n' + '\n' + '您还可以选择：东苑' + '\n' + '（东苑正在完善，别催了，555 o(╥﹏╥)o）' + '\n\n' + '请收下食堂菌的一言，不要介意哟：' + '\n' + content_yiyan
-      
+
 最终文本()
 发钉钉()
