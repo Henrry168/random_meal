@@ -1,12 +1,14 @@
 import random
 
+
 def clone(self):
     result = []
     for i in range(1000):
         for x in self:
             result.append(x)
-    
+
     return result
+
 
 def shuffle(lis):
     result = []
