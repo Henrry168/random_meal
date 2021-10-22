@@ -3,7 +3,6 @@ import urllib.parse
 import time
 import requests
 
-import bot
 import core
 import config
 
@@ -66,4 +65,3 @@ def 最终文本():
         '\n\n' + '请收下食堂菌的一言，不要介意哟：' + '\n' + 一言()
 
 
-bot.dingtalk(最终文本())
