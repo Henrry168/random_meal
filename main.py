@@ -23,7 +23,6 @@ else:
 
 def 吃什么好呢(meal):
     global destination, floor, number, 去西苑
-    print(list(config.西苑的大宝贝[meal].items()))
     destination = random.choice(core.shuffle(
         core.clone(list(config.西苑的大宝贝[meal].items()))))
     判断()
@@ -60,8 +59,7 @@ def 最终文本():
     微博()
     时间 = '现在时刻，北京时间' + str(now_time)
     问候 = '大家好，今天' + meal + '的幸运窗口是：'
-    return 时间 + '\n\n' + 问候 + 去西苑 + '\n' + '来看看这里有什么吧: ' + \
-        str(西苑微博) + '\n' + '\n' + '您还可以选择：东苑' + '\n' + '（东苑正在完善，别催了，555 o(╥﹏╥)o）' + \
+    return 时间 + '\n\n' + 问候 + 去西苑 + '\n' + '\n' + '您还可以选择：东苑' + '\n' + '（东苑正在完善，别催了，555 o(╥﹏╥)o）' + \
         '\n\n' + '请收下食堂菌的一言，不要介意哟：' + '\n' + 一言()
 
 
