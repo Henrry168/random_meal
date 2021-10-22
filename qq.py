@@ -15,7 +15,7 @@ def on_group_message(event: GroupMessage):
 
 @bot.on(FriendMessage)
 async def on_friend_message(event: FriendMessage):
-    if str(event.message_chain) == '今天吃点啥':
+    if str(event.message_chain) == '吃点啥':
         return bot.send(event, main.最终文本())
 
 bot.run()
