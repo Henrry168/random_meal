@@ -17,3 +17,8 @@ def shuffle(lis):
         result.append(lis[p])
         lis.pop(p)
     return result
+
+def coreInit(data):
+    data = clone(data) # 克隆
+    data = shuffle(data) # 洗牌
+    return random.choice(data) # 抽牌
