@@ -26,7 +26,7 @@ else:
 def 吃什么好呢(time, 餐厅序号):
     destination = random.choice(core.shuffle(core.clone(list(config.餐厅[餐厅序号]['内容'][time].items()))))
     if destination in config.餐厅[餐厅序号]['内容']['黑名单']:
-        吃什么好呢(time)
+        吃什么好呢(time, 餐厅序号)
     else:
         destination
     floor, number = destination
@@ -59,8 +59,8 @@ def 最终文本():
         叫号 = 吃什么好呢(time, i)
         文本 = 文本 + 叫号 + '\n'
 
-    最终文本 = 时间 + '\n\n' + 问候 + 文本 + '\n\n' + \
-        '\n\n' + '请收下食堂菌的一言，不要介意哟：' + '\n' + 一言()
+    最终文本 = 时间 + '\n\n' + 问候 + 文本 + '\n' + \
+        '请收下食堂菌的一言，不要介意哟：' + '\n' + 一言()
     print(最终文本)
     return 最终文本
 
