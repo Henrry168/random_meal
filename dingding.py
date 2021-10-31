@@ -13,4 +13,5 @@ def dingtalk(text):
     requests.post(config.bot['dingtalk'], data=json.dumps(
         program), headers=headers)
 
+
 dingtalk(main.最终文本())

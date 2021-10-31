@@ -22,20 +22,22 @@ else:
     time = '晚上'
 
 
-#窗口
+# 窗口
 def 吃什么好呢(time, 餐厅序号):
-    destination = random.choice(core.shuffle(core.clone(list(config.餐厅[餐厅序号]['内容'][time].items()))))
+    destination = random.choice(core.shuffle(
+        core.clone(list(config.餐厅[餐厅序号]['内容'][time].items()))))
     if destination in config.餐厅[餐厅序号]['内容']['黑名单']:
         吃什么好呢(time, 餐厅序号)
     else:
         destination
     floor, number = destination
-    去餐厅 = config.学校 + config.餐厅[餐厅序号]['名字'] + str(floor) + '楼' + str(number) + '号'
+    去餐厅 = config.学校 + config.餐厅[餐厅序号]['名字'] + \
+        str(floor) + '楼' + str(number) + '号'
     print(destination)
     return 去餐厅
 
 
-#def 微博():
+# def 微博():
     global 西苑微博
     item_xiyuan = 去餐厅
     西苑url = urllib.parse.quote(item_xiyuan)
@@ -51,7 +53,7 @@ def 一言():
 
 
 def 最终文本():
-    #微博()
+    # 微博()
     时间 = '现在时刻，北京时间' + str(now_time)
     问候 = '大家好，今天' + time + '的幸运窗口是：' + '\n'
     文本 = ''

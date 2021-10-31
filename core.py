@@ -1,6 +1,8 @@
 import random
 
 # 克隆 1000 项
+
+
 def clone(self):
     result = []
     for i in range(1000):
@@ -10,6 +12,8 @@ def clone(self):
     return result
 
 # 洗牌算法
+
+
 def shuffle(lis):
     result = []
     while lis:
@@ -18,7 +22,8 @@ def shuffle(lis):
         lis.pop(p)
     return result
 
+
 def coreInit(data):
-    data = clone(data) # 克隆
-    data = shuffle(data) # 洗牌
-    return random.choice(data) # 抽牌
+    data = clone(data)  # 克隆
+    data = shuffle(data)  # 洗牌
+    return random.choice(data)  # 抽牌
