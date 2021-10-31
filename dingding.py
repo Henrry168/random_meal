@@ -10,8 +10,7 @@ def dingtalk(text):
         "text": {"content": text}
     }
     headers = {'content-Type': 'application/json'}
-    requests.post(config.bot['dingtalk'], data=json.dumps(
-        program), headers=headers)
+    requests.post(item, data=json.dumps(program), headers=headers)
 
-
-dingtalk(main.最终文本())
+for item in config.Webhook:
+    dingtalk(main.最终文本())

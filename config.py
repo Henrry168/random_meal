@@ -3,9 +3,15 @@ import core
 
 weibo_search_url = 'http://s.weibo.com/weibo/'
 
-bot = {
-    'dingtalk':  'https://oapi.dingtalk.com/robot/send?access_token=d52e22e093a6e85459a7ff267fa410207891e5899c58e51436be9e6c67af6c2b'
-}
+#切记不要泄露此信息
+Webhook = [
+    #518通知群
+    'https://oapi.dingtalk.com/robot/send?access_token=d52e22e093a6e85459a7ff267fa410207891e5899c58e51436be9e6c67af6c2b',
+    #测试群
+    'https://oapi.dingtalk.com/robot/send?access_token=b5e086baf8e1c25e497b2b412870bf37c9a150d10d49902a0434208440f8c633'
+]
+
+
 
 学校 = '郑航'
 
