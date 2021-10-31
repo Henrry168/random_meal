@@ -1,15 +1,6 @@
 import random
 import core
 
-
-weibo_search_url = 'http://s.weibo.com/weibo/'
-
-bot = {
-    'dingtalk':  'https://oapi.dingtalk.com/robot/send?access_token=d52e22e093a6e85459a7ff267fa410207891e5899c58e51436be9e6c67af6c2b'
-}
-
-学校 = '郑航'
-
 餐厅 = [
     {
         '名字': '西苑',
@@ -20,13 +11,13 @@ bot = {
             '中午': {
                 1: random.choice(core.shuffle(core.clone(list(range(1, 25))))),
                 2: random.choice(core.shuffle(core.clone(['A01', 'A02', 'A03', 'A04', 'A05', 'A06', 'A07', 'A08', 'A09', 'A10', 'A11木桶饭', 'B01', 'B02', 'B03', 'B04', 'B05', 'B06', 'B07', 'B08', 'B09', 'B10', 'B11', 'B12', 'B13']))),
-                3: random.choice(core.shuffle(core.clone(['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'G', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T']))),
+                3: random.choice(core.shuffle(core.clone(['A''B''C''D''E''F''G''H''I''G''K''L''M''N''O''P''Q''R''S''T']))),
             },
 
             '晚上':  {
                 1: random.choice(core.shuffle(core.clone(list(range(1, 25))))),
                 2: random.choice(core.shuffle(core.clone(['A01', 'A02', 'A03', 'A04', 'A05', 'A06', 'A07', 'A08', 'A09', 'A10', 'A11木桶饭', 'B01', 'B02', 'B03', 'B04', 'B05', 'B06', 'B07', 'B08', 'B09', 'B10', 'B11', 'B12', 'B13']))),
-                3: random.choice(core.shuffle(core.clone(['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'G', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T']))),
+                3: random.choice(core.shuffle(core.clone(['A''B''C''D''E''F''G''H''I''G''K''L''M''N''O''P''Q''R''S''T']))),
             },
 
             '休闲': {
@@ -34,7 +25,7 @@ bot = {
                 2: random.choice(core.shuffle(core.clone([12]))),
                 3: random.choice(core.shuffle(core.clone([13])))
             },
-            '黑名单': [(2, 24)]
+        '黑名单': [(2, 24), (3, 6), (3, 7), (3, 11)]
         }
     },
 
@@ -61,7 +52,10 @@ bot = {
                 2: random.choice(core.shuffle(core.clone([12]))),
                 3: random.choice(core.shuffle(core.clone([13])))
             },
-            '黑名单': [(2, 5), (2, 1), (2, 10), (2, 23)]
+        '黑名单': [(2, 5), (2, 1), (2, 10), (2, 23)]
         }
     }
 ]
+
+destination1 = random.choice(core.shuffle(core.clone(list(餐厅[0]['内容']['早上'].items()))))
+print(destination1)
