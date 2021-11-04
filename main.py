@@ -11,7 +11,7 @@ from interval import Interval
 now_localtime = time.strftime("%H:%M:%S", time.localtime())
 print(now_localtime)
 now_time = Interval(now_localtime, now_localtime)
-time_interval_1 = Interval("6:00:00", "9:00:00")
+time_interval_1 = Interval("06:00:00", "09:00:00")
 time_interval_2 = Interval("11:00:00", "13:00:00")
 time_interval_3 = Interval("17:00:00", "20:00:00")
 if now_time in time_interval_1:
@@ -24,8 +24,11 @@ else:
 
 # 窗口
 def 吃什么好呢(time, 餐厅序号):
-    destination = random.choice(core.shuffle(
-        core.clone(list(config.餐厅[餐厅序号]['内容'][time].items()))))
+    floor = random.choice(core.shuffle(
+        core.clone(list(config.餐厅[餐厅序号]['内容'][time].keys()))))
+    number = random.choice(core.shuffle(
+        core.clone(list(config.餐厅[餐厅序号]['内容'][time][floor]))))
+    destination = (floor, number)
     if destination in config.餐厅[餐厅序号]['内容']['黑名单']:
         吃什么好呢(time, 餐厅序号)
     else:
